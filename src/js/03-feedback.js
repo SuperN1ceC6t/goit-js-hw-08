@@ -27,10 +27,20 @@ const submitForm = (event) => {
         email: emailInput.value,
         message: messageInput.value,
     }
-    console.log(formData);
+    if (validateForm(formData)) {
+        console.log(formData);
+        form.reset()
+    } else { alert('All fields must be fiellded') }
     localStorage.clear()
     emailInput.value = ''
     messageInput.value = ''
+}
+
+function validateForm(data) {
+    for (let key in data) {
+        if (data[key] === '') { return false }
+    }
+    return true
 }
 
 emailInput.addEventListener('input', throttle(saveFormData, 500))

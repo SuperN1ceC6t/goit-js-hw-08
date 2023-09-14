@@ -12,5 +12,5 @@ function getCurrentTime(data) {
     localStorage.setItem("videoplayer-current-time", currentTime)
 }
 
-player.setCurrentTime(localStorage.getItem("videoplayer-current-time"))
+player.setCurrentTime(localStorage.getItem("videoplayer-current-time") || 0)
 
