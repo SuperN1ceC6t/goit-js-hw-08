@@ -29,14 +29,12 @@ const submitForm = (event) => {
     }
     if (validateForm(formData)) {
         console.log(formData);
+        localStorage.clear()
         form.reset()
     } else { alert('All fields must be fiellded') }
-    localStorage.clear()
-    emailInput.value = ''
-    messageInput.value = ''
 }
 
-function validateForm(data) {
+const validateForm = (data) => {
     for (let key in data) {
         if (data[key] === '') { return false }
     }
